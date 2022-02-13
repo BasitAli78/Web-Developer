@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        // Prevent dropdown menu from closing when click inside the form
+        $(document).on("click", ".action-buttons .dropdown-menu", function (e) {
+            e.stopPropagation();
+        });
+    </script>
+    <link rel="stylesheet" href="boot.css">
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .form-control {
+            box-shadow: none;
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+        .navbar {
+            background: #fff;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-bottom: 1px solid #dfe3e8;
+            border-radius: 0;
+        }
+
+        .nav-link img {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            margin: -8px 0;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .navbar .navbar-brand {
+            padding-left: 0;
+            font-size: 20px;
+            padding-right: 50px;
+        }
+
+        .navbar .navbar-brand b {
+            color: #33cabb;
+        }
+
+        .navbar .form-inline {
+            display: inline-block;
+        }
+
+        .navbar a {
+            color: #888;
+            font-size: 15px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding-right: 35px;
+            border-color: #dfe3e8;
+            border-radius: 4px !important;
+            box-shadow: none
+        }
+
+        .search-box .input-group-text {
+            min-width: 35px;
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            z-index: 9;
+            padding: 7px;
+            height: 100%;
+        }
+
+        .search-box i {
+            color: #a0a5b1;
+            font-size: 19px;
+        }
+
+        .navbar .sign-up-btn {
+            min-width: 110px;
+            max-height: 36px;
+        }
+
+        .navbar .dropdown-menu {
+            color: #999;
+            font-weight: normal;
+            border-radius: 1px;
+            border-color: #e5e5e5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+        }
+
+        .navbar a,
+        .navbar a:active {
+            color: #888;
+            padding: 8px 20px;
+            background: transparent;
+            line-height: normal;
+        }
+
+        .navbar .navbar-form {
+            border: none;
+        }
+
+        .navbar .action-form {
+            width: 280px;
+            padding: 20px;
+            left: auto;
+            right: 0;
+            font-size: 14px;
+        }
+
+        .navbar .action-form a {
+            color: #33cabb;
+            padding: 0 !important;
+            font-size: 14px;
+        }
+
+        .navbar .action-form .hint-text {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .navbar .btn-primary,
+        .navbar .btn-primary:active {
+            color: #fff;
+            background: #33cabb !important;
+            border: none;
+        }
+
+        .navbar .btn-primary:hover,
+        .navbar .btn-primary:focus {
+            color: #fff;
+            background: #31bfb1 !important;
+        }
+
+        .navbar .social-btn .btn,
+        .navbar .social-btn .btn:hover {
+            color: #fff;
+            margin: 0;
+            padding: 0 !important;
+            font-size: 13px;
+            border: none;
+            transition: all 0.4s;
+            text-align: center;
+            line-height: 34px;
+            width: 47%;
+            text-decoration: none;
+        }
+
+        .navbar .social-btn .facebook-btn {
+            background: #507cc0;
+        }
+
+        .navbar .social-btn .facebook-btn:hover {
+            background: #4676bd;
+        }
+
+        .navbar .social-btn .twitter-btn {
+            background: #64ccf1;
+        }
+
+        .navbar .social-btn .twitter-btn:hover {
+            background: #4ec7ef;
+        }
+
+        .navbar .social-btn .btn i {
+            margin-right: 5px;
+            font-size: 16px;
+            position: relative;
+            top: 2px;
+        }
+
+        .or-seperator {
+            margin-top: 32px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .or-seperator b {
+            color: #666;
+            padding: 0 8px;
+            width: 30px;
+            height: 30px;
+            font-size: 13px;
+            text-align: center;
+            line-height: 26px;
+            background: #fff;
+            display: inline-block;
+            border: 1px solid #e0e0e0;
+            border-radius: 50%;
+            position: relative;
+            top: -15px;
+            z-index: 1;
+        }
+
+        .navbar .action-buttons .dropdown-toggle::after {
+            display: none;
+        }
+
+        .form-check-label input {
+            position: relative;
+            top: 1px;
+        }
+
+        @media (min-width: 1200px) {
+            .form-inline .input-group {
+                width: 300px;
+                margin-left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .dropdown-menu.action-form {
+                width: 100%;
+                padding: 10px 15px;
+                background: transparent;
+                border: none;
+            }
+
+            .navbar .form-inline {
+                display: block;
+            }
+
+            .navbar .input-group {
+                width: 100%;
+            }
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: rgba(219, 202, 202, 0.5);
+        }
+
+        .navbar-light .navbar-nav .nav-link.active,
+        .navbar-light .navbar-nav .nav-link.show,
+        .navbar-light .navbar-nav .show>.nav-link {
+            color: rgba(219, 202, 202, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark border-0">
+        <a href="#" class="navbar-brand">Brand<b>Name</b></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">Home</a>
+                <a href="#" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Web Design</a>
+                        <a href="#" class="dropdown-item">Web Development</a>
+                        <a href="#" class="dropdown-item">Graphic Design</a>
+                        <a href="#" class="dropdown-item">Digital Marketing</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item nav-link active">Pricing</a>
+                <a href="#" class="nav-item nav-link">Blog</a>
+                <a href="#" class="nav-item nav-link">Contact</a>
+            </div>
+            <form class="navbar-form form-inline">
+                <div class="input-group search-box">
+                    <input type="text" id="search" class="form-control" placeholder="Search here...">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="material-icons">&#xE8B6;</i>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div class="navbar-nav ml-auto action-buttons">
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
+                    <div class="dropdown-menu action-form">
+                        <form action="/examples/actions/confirmation.php" method="post">
+                            <p class="hint-text">Sign in with your social media account</p>
+                            <div class="form-group social-btn clearfix">
+                                <a href="#" class="btn btn-secondary facebook-btn float-left"><i
+                                        class="fa fa-facebook"></i>
+                                    Facebook</a>
+                                <a href="#" class="btn btn-secondary twitter-btn float-right"><i
+                                        class="fa fa-twitter"></i>
+                                    Twitter</a>
+                            </div>
+                            <div class="or-seperator"><b>or</b></div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" required="required">
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Login">
+                            <div class="text-center mt-2">
+                                <a href="#">Forgot Your password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
+                    <div class="dropdown-menu action-form">
+                        <form action="/examples/actions/confirmation.php" method="post">
+                            <p class="hint-text">Fill in this form to create your account!</p>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password"
+                                    required="required">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label"><input type="checkbox" required="required"> I accept the
+                                    <a href="#">Terms &amp; Conditions</a></label>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text- bg-dark p-5">
+        <div class="row">
+            <div class="col-md-6">
+
+                <h2>Become A <span class="text-warning"> Web Developer</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus blanditiis unde eaque est id
+                    deleniti
+                    aliquid! Dolorum debitis animi aspernatur, possimus quidem culpa, repellendus, esse repudiandae
+                    ratione
+                    similique repellat dolores.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="photo/showcase.svg" class="w-100 image-fluid" alt="">
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid bg-primary p-3" id="tex">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Sign Up For Our Newsletter</h2>
+            </div>
+            <div class="col-md-6 input-group">
+                <input type="text" class="form-control h-100" placeholder="Search.." name="search">
+                <button type="submit" class="btn btn-warning">SEARCH</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container p-5 ">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card bg-dark">
+                    <div class="card-body text-center">
+                        <i class="bi bi-laptop"></i>
+                        <h2>Virtual</h2>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, quas quidem
+                            possimus dolorum esse eligendi?</p>
+                        <a href=""><button class="btn btn-primary">SEARCH</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-dark">
+                    <div class="card-body text-center">
+                        <i class="bi bi-laptop"></i>
+                        <h2>Hybrid</h2>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, quas quidem
+                            possimus dolorum esse eligendi?</p>
+                        <a href=""><button class="btn btn-primary">SEARCH</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-dark">
+                    <div class="card-body text-center">
+                        <i class="bi bi-laptop"></i>
+                        <h2>In Preson</h2>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, quas quidem
+                            possimus dolorum esse eligendi?</p>
+                        <a href=""><button class="btn btn-primary">SEARCH</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="image-fluid w-100" src="photo/fundamentals.svg" alt="">
+            </div>
+            <div class="col-md-6 text-dark p-5">
+                <h2 class="text-center">Learn The Fundamentals</h2>
+                <hr class="bg-warning w-100">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus ab debitis ad vero cum iste nulla
+                    ipsum illo quia doloremque mollitia a odit dolor porro reprehenderit, eaque soluta quod sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestias est omnis. Harum dolore
+                    asperiores, minima saepe voluptates amet architecto deleniti voluptatem debitis minus, accusamus ex,
+                    temporibus ratione laborum eos.</p>
+                <a href=""><button class="btn btn-light">>Read More</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-dark p-5 ">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h2>Learn React</h2>
+                <hr class="bg-warning w-25">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi saepe nostrum consequuntur quos
+                    eius quo, hic nulla, soluta vero aspernatur tenetur voluptate autem rem dignissimos inventore
+                    aliquid maxime. Hic, impedit.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit aperiam doloribus vel minus
+                    doloremque, debitis porro repellat, ad voluptatibus hic aspernatur fugiat possimus illo voluptates
+                    magni aliquam exercitationem recusandae quas?</p>
+                <a href=""><button class="btn btn-light">>Read More</button></a>
+            </div>
+            <div class="col-md-6">
+                <img class="image-fluid w-100" src="photo/react.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container p-5 text-dark">
+        <h2 class="text-center text-dark">Frequently Asked Questions</h2>
+        <hr class="bg-danger w-50">
+
+        <button class="accordion">Where exactly are you located ?</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+
+        <button class="accordion">How much does it cost to attend ?</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+
+        <button class="accordion">Why do I need to know ?</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion">How do I sing up ?</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion">Do you help me find a job ?</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+
+
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+    <div class="container-fluid bg-primary text-center p-5">
+        <h2 class="text-center">Our Instructors</h2>
+        <hr class="bg-warning w-25">
+        <p class="text-center">Our instructors all have 5+ years working as a web developer in the industry</p>
+        <div class="row text-dark">
+            <div class="col-md-3 col-lg-3 ">
+                <div class="card p-2">
+                    <img class="card-img-top rounded-circle w-50 mr-auto ml-auto" src="photo/1.jpg" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <div class="card p-2">
+                    <img class="card-img-top rounded-circle w-50 mr-auto ml-auto" src="photo/2.jpg" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 ">
+                <div class="card p-2">
+                    <img class="card-img-top rounded-circle w-50 mr-auto ml-auto" src="photo/3.jpg" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 ">
+                <div class="card p-2">
+                    <img class="card-img-top rounded-circle w-50 mr-auto ml-auto" src="photo/4.jpg" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-dark p-5">
+        <div class="row">
+            <div class="col-md-6">
+                
+                <h2 class="text-center">Contact Info</h2>
+                <br>
+                <p style="font-size:larger;"><span class="font-weight-bold">Main Location: </span> 50 Main st Boston MA
+                </p>
+                <p style="font-size:larger;"> <span class="font-weight-bold">Enrollment Phone:</span>E (555) 555-5555
+                </p>
+                <p style="font-size:larger;"><span class="font-weight-bold">Student Phone:</span> (333) 333-3333</p>
+                <p style="font-size:larger;"><span class="font-weight-bold"> Enrollment Email: </span>(555)
+                    enroll@frontendbc.test</p>
+                <p style="font-size:larger;"> <span class="font-weight-bold"> Student Email:</span>
+                    student@frontendbc.test</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container-fluid bg-dark p-5">
+        <p style="font-size: larger; display: flex; align-items: center;justify-content: center;">Copyright © 2021 Frontend Bootcamp</p>
+    </div>
+  
+
+</body>
